@@ -1,0 +1,84 @@
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
+
+export default function Home() {
+  useEffect(() => {
+    document.title = "Muhammad Helmi | Portfolio";
+  }, []);
+
+  return (
+    <div className="bg-black text-white min-h-screen font-sans">
+      {/* Header Section */}
+      <section className="flex flex-col justify-center items-start h-screen px-8 md:px-24">
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold mb-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Hi, I'm Muhammad Helmi
+        </motion.h1>
+        <motion.p
+          className="text-lg md:text-xl text-gray-400"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          I build things for the web.
+        </motion.p>
+
+        <motion.button
+          className="mt-10 px-6 py-3 border border-green-400 rounded text-green-400 hover:bg-green-400 hover:text-black transition"
+          whileHover={{ scale: 1.05 }}
+        >
+          View My Work
+        </motion.button>
+
+        <motion.div
+          className="mt-20 animate-bounce text-green-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+        >
+          <ArrowDown size={32} />
+        </motion.div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="px-8 md:px-24 py-20 bg-gray-900">
+        <h2 className="text-3xl font-semibold mb-6">About Me</h2>
+        <p className="text-gray-400 max-w-3xl">
+          I'm a passionate web developer based in Banjarmasin. I enjoy crafting elegant solutions with modern technologies, especially using JavaScript, React, and Tailwind. I have experience working as a Gojek driver, a sales executive, and now I’m transitioning into tech to create meaningful digital experiences.
+        </p>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="px-8 md:px-24 py-20">
+        <h2 className="text-3xl font-semibold mb-6">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold">News Portal Website</h3>
+            <p className="text-gray-400 mt-2">PHP-based CMS with admin dashboard, ad submission, and visitor feedback features.</p>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold">Training Session App</h3>
+            <p className="text-gray-400 mt-2">A scheduling tool for training sessions with notification system (PHP + MySQL).</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="px-8 md:px-24 py-20 bg-gray-900">
+        <h2 className="text-3xl font-semibold mb-6">Contact Me</h2>
+        <p className="text-gray-400 max-w-xl">
+          Want to work together or just say hello? Feel free to reach out via email at <span className="text-green-400">helmi@example.com</span>
+        </p>
+      </section>
+
+      <footer className="text-center text-gray-500 text-sm py-10">
+        &copy; {new Date().getFullYear()} Muhammad Helmi. All rights reserved.
+      </footer>
+    </div>
+  );
+}
